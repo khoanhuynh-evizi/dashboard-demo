@@ -1,0 +1,41 @@
+name: Run test when branch
+
+on:
+  push:
+    branches:
+      - '**'
+      - '!main'
+      - '!develop'
+    
+jobs:
+  run-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: khoanhuynh-evizi/RC360-WDIO 
+          token: ${{ secrets.WDIO_ACCESS_TOKEN }}
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - run: yarn install --frozen-lockfile
+      - run: yarn test --suite="Regression Test" --features="Login" --reporter="Allure Reporter"
+      - name: Allure Reporter generator
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        id: allure-report
+        with:
+          allure_results: reports
+          gh_pages: gh-pages
+          allure_report: allure-report
+          allure_history: allure-history
+      - name: Deploy Report to Github Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          external_repository: khoanhuynh-evizi/dashboard-demo
+          publish_dir: ./allure-report
+          personal_token: ${{ secrets.WDIO_ACCESS_TOKEN }}
