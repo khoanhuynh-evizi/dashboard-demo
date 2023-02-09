@@ -32,10 +32,6 @@ jobs:
           gh_pages: gh-pages
           allure_report: allure-report
           allure_history: allure-history
-      - name: Set environment variables
-        run: |
-          echo "GIT_BRANCH=${GITHUB_REF##*/}" >> $GITHUB_ENV
-
       - name: Deploy Report to Github Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v3
@@ -43,4 +39,4 @@ jobs:
           external_repository: khoanhuynh-evizi/dashboard-demo
           publish_dir: ./allure-report
           personal_token: ${{ secrets.WDIO_ACCESS_TOKEN }}
-          destination_dir: ${{ GIT_BRANCH }}
+          destination_dir: ${{ GITHUB_BASE_REF }}
