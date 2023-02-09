@@ -1,0 +1,17 @@
+name: Run test when update main
+
+on:
+  push:
+    branches: [ "main" ]
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          name: khoanhuynh-evizi/RC360-WDIO 
+          ref: refs/heads/main
+      - name: Deploying now to dashboard-t
+        run: |
+          yarn test --suite="Smoke Test" --reporter="Spec Reporter"
