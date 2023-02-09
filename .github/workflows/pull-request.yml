@@ -11,7 +11,10 @@ jobs:
       - uses: actions/checkout@v3
         with:
           name: khoanhuynh-evizi/RC360-WDIO 
-          ref: refs/heads/main
-      - name: Deploying now to dashboard-t
-        run: |
-          yarn test --suite="Smoke Test" --reporter="Spec Reporter"
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - run: yarn install --frozen-lockfile
+      - run: yarn test --suite="Smoke Test" --reporter="Spec Reporter"
