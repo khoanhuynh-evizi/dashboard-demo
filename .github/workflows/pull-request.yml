@@ -35,4 +35,4 @@ jobs:
         with:
           external_repository: khoanhuynh-evizi/dashboard-demo
           publish_dir: ./allure-history
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          personal_token: ${{ secrets.WDIO_ACCESS_TOKEN }}
