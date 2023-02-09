@@ -34,5 +34,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           external_repository: khoanhuynh-evizi/dashboard-demo
-          publish_dir: ./allure-history
+          publish_dir: ./allure-report
           personal_token: ${{ secrets.WDIO_ACCESS_TOKEN }}
