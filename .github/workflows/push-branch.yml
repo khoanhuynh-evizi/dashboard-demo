@@ -22,7 +22,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - run: yarn install --frozen-lockfile
-      - run: yarn test --suite="Regression Test" --features="Login" --reporter="Allure Reporter"
+      - run: yarn test --suite="Specific Feature Test" --features="Login" --reporter="Allure Reporter"
       - name: Allure Reporter generator
         uses: simple-elf/allure-report-action@master
         if: always()
@@ -39,5 +39,5 @@ jobs:
           external_repository: khoanhuynh-evizi/dashboard-demo
           publish_dir: ./allure-report
           personal_token: ${{ secrets.WDIO_ACCESS_TOKEN }}
-          destination_dir: ${GITHUB_REF##*/}
+          destination_dir: ${{ GITHUB_REF##*/ }}
 
