@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          name: khoanhuynh-evizi/RC360-WDIO 
+          repository: khoanhuynh-evizi/RC360-WDIO 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
