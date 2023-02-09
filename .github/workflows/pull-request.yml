@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
     
 jobs:
-  build:
+  run-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -19,4 +19,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - run: yarn install --frozen-lockfile
-      - run: yarn test --suite="Smoke Test" --reporter="Spec Reporter"
+      - run: yarn test --suite="Specific Feature Test" --features="Login" --reporter="Allure Reporter"
+      - name: Allure Reporter generator
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
