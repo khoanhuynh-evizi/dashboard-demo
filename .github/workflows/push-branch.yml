@@ -39,4 +39,4 @@ jobs:
           external_repository: khoanhuynh-evizi/dashboard-demo
           publish_dir: ./allure-report
           personal_token: ${{ secrets.WDIO_ACCESS_TOKEN }}
-          destination_dir: ${{ GITHUB_BASE_REF }}
+          destination_dir: ${{ env.GITHUB_BASE_REF }}
