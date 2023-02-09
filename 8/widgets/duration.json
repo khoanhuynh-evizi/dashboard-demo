@@ -1,1 +1,0 @@
-[{"uid":"2b6fba6941d05ba6","name":"LG-2: Login with valid credentials","time":{"start":1675935362091,"stop":1675935362926,"duration":835},"status":"passed","severity":"normal"},{"uid":"452e6cc3348db3e","name":"LG-1: Login with invalid credentials","time":{"start":1675935356539,"stop":1675935362090,"duration":5551},"status":"passed","severity":"normal"}]
