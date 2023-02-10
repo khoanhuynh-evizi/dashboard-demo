@@ -40,5 +40,6 @@ jobs:
           external_repository: khoanhuynh-evizi/dashboard-demo
           publish_dir: ./allure-report
           personal_token: ${{ secrets.WDIO_ACCESS_TOKEN }}
-      - name: Echo logs
-        run: echo ${{ steps.tests.outputs.stdout }}
+      - name: Check test run 
+        run: echo ${{ steps.tests.outputs.stdout }} | egrep '[0-9]+\sfailed,\s[0-9]+\stotal' >/dev/null
+
