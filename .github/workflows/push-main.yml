@@ -19,7 +19,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - run: yarn install --frozen-lockfile
-      - id: test
+      - id: tests
         run: yarn test --suite="Specific Feature Test" --features="Falled, Passed" --reporter="Spec Reporter" 
       - name: Allure Reporter generator
         uses: simple-elf/allure-report-action@master
@@ -38,4 +38,4 @@ jobs:
           publish_dir: ./allure-report
           personal_token: ${{ secrets.WDIO_ACCESS_TOKEN }}
       - name: Echo logs
-        run: echo ${{join(steps.run_tests.outputs.*, '\n')}}
+        run: echo ${{join(steps.tests.outputs.*, '\n')}}
