@@ -1,4 +1,4 @@
-name: Run test when branch
+name: Run test when create pull request
 
 on:
   pull_request:
