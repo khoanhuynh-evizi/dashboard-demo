@@ -1,2 +1,2 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Fri Feb 10 09:23:08 GMT 2023","Fri Feb 10 09:23:15 GMT 2023","7296","","Demo with Login","","Demo with Login","DEMOLG-1: Login passed","DEMOLG-1: Login passed",""
+"passed","Fri Feb 10 09:23:55 GMT 2023","Fri Feb 10 09:24:01 GMT 2023","6039","","Demo with Login","","Demo with Login","DEMOLG-1: Login passed","DEMOLG-1: Login passed",""
