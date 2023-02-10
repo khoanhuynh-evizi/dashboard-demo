@@ -39,7 +39,7 @@ jobs:
           EOL
       - name: Test Checker
         run: |
-          if [ -z "$(egrep '[0-9]+\sfailed,\s[0-9]+\stotal' specs-reporter.log)" ]; then
+          if [ !  -z "$(egrep '[0-9]+\sfailed,\s[0-9]+\stotal' specs-reporter.log)" ]; then
             exit 1
           fi
       - name: Deploy Report to Github Pages
