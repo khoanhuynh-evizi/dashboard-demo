@@ -38,4 +38,4 @@ jobs:
           publish_dir: ./allure-report
           personal_token: ${{ secrets.WDIO_ACCESS_TOKEN }}
       - name: Echo logs
-        run: echo ${{join(steps.tests.outputs.*, '\n')}}
+        run: echo ${{ steps.tests.outputs.stdout }}
