@@ -35,7 +35,9 @@ jobs:
           allure_history: allure-history
       - name: Check test run 
         run: | 
-          echo ${{ steps.tests.outputs.stdout }} > specs-reporter.logs
+          cat > specs-reporter.logs <<EOL
+          ${{ steps.tests.outputs.stdout }}
+          EOL
           egrep '[0-9]+\sfailed,\s[0-9]+\stotal' specs-reporter.logs > /dev/null
       - name: Deploy Report to Github Pages
         if: always()
