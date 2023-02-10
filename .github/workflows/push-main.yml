@@ -38,7 +38,8 @@ jobs:
           cat > specs-reporter.logs <<EOL
           ${{ steps.tests.outputs.stdout }}
           EOL
-          egrep '[0-9]+\sfailed,\s[0-9]+\stotal' specs-reporter.logs > /dev/null
+          FALLED=egrep '[0-9]+\sfailed,\s[0-9]+\stotal' specs-reporter.logs > /dev/null
+          echo $FALLED
       - name: Deploy Report to Github Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v3
