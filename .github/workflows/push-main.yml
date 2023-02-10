@@ -12,14 +12,14 @@ jobs:
         with:
           repository: khoanhuynh-evizi/RC360-WDIO 
           token: ${{ secrets.WDIO_ACCESS_TOKEN }}
-
+          ref: demo
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - run: yarn install --frozen-lockfile
-      - run: yarn test --suite="Regression Test" --reporter="Allure Reporter"
+      - run: yarn test --suite="Specific Feature Test" --features="Falled, Passed" --reporter="Spec Reporter" 
       - name: Allure Reporter generator
         uses: simple-elf/allure-report-action@master
         if: always()
