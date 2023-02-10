@@ -19,8 +19,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - run: yarn install --frozen-lockfile
-      - id: tests
-        run: yarn test --suite="Specific Feature Test" --features="Falled, Passed" --reporter="Spec Reporter" 
+      - name: Run tests
+        uses: mathiasvr/command-output@v1
+        id: tests
+        with:
+          run: yarn test --suite="Specific Feature Test" --features="Falled, Passed" --reporter="Spec Reporter" 
       - name: Allure Reporter generator
         uses: simple-elf/allure-report-action@master
         if: always()
