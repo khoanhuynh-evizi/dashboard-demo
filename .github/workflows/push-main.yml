@@ -37,10 +37,9 @@ jobs:
           cat > specs-reporter.log <<EOL
           ${{ steps.tests.outputs.stdout }}
           EOL
-      - run: echo $(egrep '[0-9]+\sfailed,\s[0-9]+\stotal' specs-reporter.log) >> $GITHUB_ENV
       - name: Test Checker
         run: |
-          if [ -z "${{ env.GITHUB_BASE_REF }}" ]; then
+          if [ -z "$(egrep '[0-9]+\sfailed,\s[0-9]+\stotal' specs-reporter.log)" ]; then
             exit 1
           fi
       - name: Deploy Report to Github Pages
