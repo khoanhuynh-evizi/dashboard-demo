@@ -34,10 +34,10 @@ jobs:
           allure_report: allure-report
           allure_history: allure-history
       - run: | 
-          cat > .allure-report/specs-reporter.logs <<EOL
+          cat > specs-reporter.log <<EOL
           ${{ steps.tests.outputs.stdout }}
           EOL
-      - run: echo $(egrep '[0-9]+\sfailed,\s[0-9]+\stotal' .allure-report/specs-reporter.log) >> $GITHUB_ENV
+      - run: echo $(egrep '[0-9]+\sfailed,\s[0-9]+\stotal' specs-reporter.log) >> $GITHUB_ENV
       - name: Test Checker
         run: |
           if [ -z "${{ env.GITHUB_BASE_REF }}" ]; then
