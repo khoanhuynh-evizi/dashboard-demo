@@ -2,7 +2,7 @@ name: Run test when create pull request to main
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [ main, dev ]
     
 jobs:
   run-test:
@@ -23,7 +23,7 @@ jobs:
         uses: mathiasvr/command-output@v1
         id: tests
         with:
-          run: yarn test --suite="Specific Feature Test" --features="Failed" --reporter="Spec Reporter" 
+          run: yarn test --suite="Specific Feature Test" --features="Passed" --reporter="Spec Reporter" 
       - name: Allure Reporter generator
         uses: simple-elf/allure-report-action@master
         if: always()
