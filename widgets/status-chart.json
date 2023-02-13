@@ -1,1 +1,1 @@
-[{"uid":"b03d2513ecfccba6","name":"DEMOLG-1: Login passed","time":{"start":1676255914089,"stop":1676255920248,"duration":6159},"status":"passed","severity":"normal"}]
+[{"uid":"db0a3b5d9bf9416f","name":"DEMOLG-1: Login failed","time":{"start":1676256915174,"stop":1676256948093,"duration":32919},"status":"failed","severity":"normal"}]
